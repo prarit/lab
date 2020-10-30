@@ -299,11 +299,11 @@ func TestGetLocalRemotesFromFile(t *testing.T) {
 // Note: testdata-* must be in the .gitignore or the copies will create write
 // errors as Git attempts to add the Git repo to the the project repo's index.
 func copyTestRepo() string {
-	dst, err := filepath.Abs(os.ExpandEnv("$GOPATH/src/github.com/zaquestion/lab/testdata-" + strconv.Itoa(int(rand.Uint64()))))
+	dst, err := filepath.Abs(os.ExpandEnv("$GOPATH/src/github.com/prarit/lab/testdata-" + strconv.Itoa(int(rand.Uint64()))))
 	if err != nil {
 		log.Fatal(err)
 	}
-	src, err := filepath.Abs(os.ExpandEnv("$GOPATH/src/github.com/zaquestion/lab/testdata"))
+	src, err := filepath.Abs(os.ExpandEnv("$GOPATH/src/github.com/prarit/lab/testdata"))
 	if err != nil {
 		log.Fatal(err)
 	}
