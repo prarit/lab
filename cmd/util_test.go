@@ -31,11 +31,22 @@ func Test_getCurrentBranchMR(t *testing.T) {
 		t.Fatal(err)
 	}
 
+	curDir, err := os.Getwd()
+	if err != nil {
+		t.Fatal(err)
+	}
+
 	err = os.Chdir(repo)
 	if err != nil {
 		t.Log(string(b))
 		t.Fatal(err)
 	}
 	mrNum := getCurrentBranchMR("zaquestion/test")
+	err = os.Chdir(curDir)
+	if err != nil {
+		t.Log(string(b))
+		t.Fatal(err)
+	}
+
 	assert.Equal(t, 1, mrNum)
 }
