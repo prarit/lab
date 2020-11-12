@@ -24,11 +24,13 @@ func Test_mrShow(t *testing.T) {
 
 	out := string(b)
 	out = stripansi.Strip(out)
+
+
 	require.Contains(t, out, `
 #1 Test MR for lab list
 ===================================
 
-  This MR is to remain open for testing the  lab mr list  functionality         
+  This MR is to remain open for testing the  lab mr list  functionality       
 
 
 -----------------------------------
