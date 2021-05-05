@@ -58,7 +58,6 @@ func Test_issueMsg(t *testing.T) {
 	for _, test := range tests {
 		t.Run(test.Name, func(t *testing.T) {
 			test := test
-			t.Parallel()
 			title, body, err := issueMsg("default", test.Msgs)
 			if err != nil {
 				t.Fatal(err)
@@ -70,7 +69,6 @@ func Test_issueMsg(t *testing.T) {
 }
 
 func Test_issueText(t *testing.T) {
-	t.Parallel()
 	text, err := issueText("default")
 	if err != nil {
 		t.Fatal(err)

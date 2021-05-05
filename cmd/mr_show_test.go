@@ -9,7 +9,6 @@ import (
 )
 
 func Test_mrShow(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 
 	// a comment has been added to
@@ -48,7 +47,6 @@ WebURL: https://gitlab.com/zaquestion/test/-/merge_requests/1`)
 }
 
 func Test_mrShow_patch(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "mr", "show", "origin", "1", "--patch")
 	cmd.Dir = repo
@@ -75,7 +73,6 @@ new file mode 100644
 }
 
 func Test_mrShow_diffs(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	coCmd := exec.Command(labBinaryPath, "mr", "checkout", "17")
 	coCmd.Dir = repo

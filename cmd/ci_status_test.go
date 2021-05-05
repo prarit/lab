@@ -10,7 +10,6 @@ import (
 )
 
 func Test_ciStatus(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command("git", "fetch", "origin")
 	cmd.Dir = repo
@@ -67,7 +66,6 @@ test:   test2:really_a_long_name_for   - success`)
 }
 
 func Test_ciStatusMR(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "ci", "status", "--merge-request", "17")
 	cmd.Dir = repo

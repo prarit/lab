@@ -11,7 +11,6 @@ import (
 )
 
 func Test_snippetCreate(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "snippet", "create", "-p", "lab-testing",
 		"-m", "snippet title",
@@ -42,7 +41,6 @@ func Test_snippetCreate(t *testing.T) {
 }
 
 func Test_snippetCreate_file(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	t.Log(filepath.Join(repo, "testfile"))
 	err := ioutil.WriteFile(filepath.Join(repo, "testfile"), []byte("test file contents"), 0644)
@@ -65,7 +63,6 @@ func Test_snippetCreate_file(t *testing.T) {
 }
 
 func Test_snippetCreate_Global(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 
 	cmd := exec.Command(labBinaryPath, "snippet", "create", "-p", "-g",
@@ -131,7 +128,6 @@ func Test_snipCode(t *testing.T) {
 	for _, test := range tests {
 		t.Run(test.Name, func(t *testing.T) {
 			test := test
-			t.Parallel()
 			code, err := snipCode(test.Path)
 			if err != nil {
 				t.Fatal(err)

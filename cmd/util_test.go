@@ -121,7 +121,6 @@ func Test_parseArgsStringAndID(t *testing.T) {
 	for _, test := range tests {
 		t.Run(test.Name, func(t *testing.T) {
 			test := test
-			t.Parallel()
 			s, i, err := parseArgsStringAndID(test.Args)
 			if err != nil {
 				assert.EqualError(t, err, test.ExpectedErr)
@@ -200,7 +199,6 @@ func Test_parseArgsRemoteAndID(t *testing.T) {
 	for _, test := range tests {
 		t.Run(test.Name, func(t *testing.T) {
 			test := test
-			t.Parallel()
 			s, i, err := parseArgsRemoteAndID(test.Args)
 			if err != nil {
 				assert.EqualError(t, err, test.ExpectedErr)
@@ -265,7 +263,6 @@ func Test_parseArgsRemoteAndProject(t *testing.T) {
 	for _, test := range tests {
 		t.Run(test.Name, func(t *testing.T) {
 			test := test
-			t.Parallel()
 			r, s, err := parseArgsRemoteAndProject(test.Args)
 			if err != nil {
 				assert.EqualError(t, err, test.ExpectedErr)
@@ -399,7 +396,6 @@ func Test_matchTerms(t *testing.T) {
 		},
 	}
 
-	t.Parallel()
 
 	for _, test := range tests {
 		t.Run(test.desc, func(t *testing.T) {
@@ -420,7 +416,6 @@ func Test_matchTerms(t *testing.T) {
 }
 
 func Test_same(t *testing.T) {
-	t.Parallel()
 	assert.True(t, same([]string{}, []string{}))
 	assert.True(t, same([]string{"a"}, []string{"a"}))
 	assert.True(t, same([]string{"a", "b"}, []string{"a", "b"}))
@@ -436,14 +431,12 @@ func Test_same(t *testing.T) {
 }
 
 func Test_union(t *testing.T) {
-	t.Parallel()
 	s := union([]string{"a", "b"}, []string{"c"})
 	assert.Equal(t, 3, len(s))
 	assert.True(t, same(s, []string{"a", "b", "c"}))
 }
 
 func Test_difference(t *testing.T) {
-	t.Parallel()
 	s := difference([]string{"a", "b"}, []string{"c"})
 	assert.Equal(t, 2, len(s))
 	assert.True(t, same(s, []string{"a", "b"}))

@@ -10,7 +10,6 @@ import (
 )
 
 func Test_mrListAssignedTo(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "mr", "list", "--assignee=zaquestion")
 	cmd.Dir = repo
@@ -28,7 +27,6 @@ func Test_mrListAssignedTo(t *testing.T) {
 }
 
 func Test_mrList(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "mr", "list")
 	cmd.Dir = repo
@@ -44,7 +42,6 @@ func Test_mrList(t *testing.T) {
 }
 
 func Test_mrListFlagLabel(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "mr", "list", "-l", "confirmed")
 	cmd.Dir = repo
@@ -60,7 +57,6 @@ func Test_mrListFlagLabel(t *testing.T) {
 }
 
 func Test_mrListStateMerged(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "mr", "list", "-s", "merged")
 	cmd.Dir = repo
@@ -76,7 +72,6 @@ func Test_mrListStateMerged(t *testing.T) {
 }
 
 func Test_mrListStateClosed(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "mr", "list", "-a", "-s", "closed")
 	cmd.Dir = repo
@@ -93,7 +88,6 @@ func Test_mrListStateClosed(t *testing.T) {
 }
 
 func Test_mrListFivePerPage(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "mr", "list", "-n", "5")
 	cmd.Dir = repo
@@ -109,7 +103,6 @@ func Test_mrListFivePerPage(t *testing.T) {
 }
 
 func Test_mrFilterByTargetBranch(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "mr", "list", "-t", "non-existing")
 	cmd.Dir = repo
@@ -129,7 +122,6 @@ var (
 )
 
 func Test_mrListByTargetBranch(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "mr", "list", "-t", "master")
 	cmd.Dir = repo
@@ -146,7 +138,6 @@ func Test_mrListByTargetBranch(t *testing.T) {
 // updated,asc
 // !1
 func Test_mrListUpdatedAscending(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "mr", "list", "--number=1", "--order=updated_at", "--sort=asc")
 	cmd.Dir = repo
@@ -164,7 +155,6 @@ func Test_mrListUpdatedAscending(t *testing.T) {
 // updatead,desc
 // !18
 func Test_mrListUpdatedDescending(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "mr", "list", "--number=1", "--order=updated_at", "--sort=desc")
 	cmd.Dir = repo
@@ -182,7 +172,6 @@ func Test_mrListUpdatedDescending(t *testing.T) {
 // created,asc
 // !1
 func Test_mrListCreatedAscending(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "mr", "list", "--number=1", "--order=created_at", "--sort=asc")
 	cmd.Dir = repo
@@ -200,7 +189,6 @@ func Test_mrListCreatedAscending(t *testing.T) {
 // created,desc
 // !18
 func Test_mrListCreatedDescending(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "mr", "list", "--number=1", "--order=created_at", "--sort=desc")
 	cmd.Dir = repo
@@ -216,7 +204,6 @@ func Test_mrListCreatedDescending(t *testing.T) {
 }
 
 func Test_mrListSearch(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "mr", "list", "emoji")
 	cmd.Dir = repo

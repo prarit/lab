@@ -10,7 +10,6 @@ import (
 )
 
 func Test_projectList(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "project", "list", "-m")
 	cmd.Dir = repo
@@ -25,7 +24,6 @@ func Test_projectList(t *testing.T) {
 }
 
 func Test_projectList_many(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "project", "list", "-n", "101")
 	cmd.Dir = repo

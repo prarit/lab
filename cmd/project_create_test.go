@@ -14,7 +14,6 @@ import (
 )
 
 func Test_projectCreateCmd(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	expectedPath := filepath.Base(repo)
 
@@ -54,7 +53,6 @@ func Test_projectCreateCmd(t *testing.T) {
 }
 
 func Test_determineNamespacePath(t *testing.T) {
-	t.Parallel()
 	wd, err := os.Getwd()
 	if err != nil {
 		t.Fatal(err)
@@ -74,7 +72,6 @@ func Test_determineNamespacePath(t *testing.T) {
 	for _, test := range tests {
 		test := test
 		t.Run(test.desc, func(t *testing.T) {
-			t.Parallel()
 			group, path := determineNamespacePath(test.args, "")
 			assert.Equal(t, test.expectedNamespace, group)
 			assert.Equal(t, test.expectedPath, path)

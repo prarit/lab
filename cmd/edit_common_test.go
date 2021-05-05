@@ -50,7 +50,6 @@ func Test_editGetTitleAndDescription(t *testing.T) {
 	for _, test := range tests {
 		t.Run(test.Name, func(t *testing.T) {
 			test := test
-			t.Parallel()
 			title, body, err := editGetTitleDescription(test.Issue.Title, test.Issue.Description, test.Args, len(test.Args))
 			if err != nil {
 				t.Fatal(err)
@@ -63,7 +62,6 @@ func Test_editGetTitleAndDescription(t *testing.T) {
 }
 
 func Test_editText(t *testing.T) {
-	t.Parallel()
 	text, err := editText("old title", "old body")
 	if err != nil {
 		t.Fatal(err)

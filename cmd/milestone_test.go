@@ -9,7 +9,6 @@ import (
 )
 
 func Test_milestoneCmd(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	t.Run("prepare", func(t *testing.T) {
 		cmd := exec.Command("sh", "-c", labBinaryPath+` milestone list lab-testing | grep -q 'test-milestone' && `+labBinaryPath+` milestone delete test-milestone`)

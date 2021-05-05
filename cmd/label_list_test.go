@@ -9,7 +9,6 @@ import (
 )
 
 func Test_labelList(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "label", "list")
 	cmd.Dir = repo
@@ -27,7 +26,6 @@ func Test_labelList(t *testing.T) {
 }
 
 func Test_labelListSearch(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "label", "list", "bug")
 	cmd.Dir = repo
@@ -44,7 +42,6 @@ func Test_labelListSearch(t *testing.T) {
 }
 
 func Test_labelListSearchCaseInsensitive(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "label", "list", "BUG")
 	cmd.Dir = repo

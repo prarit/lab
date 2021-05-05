@@ -128,7 +128,6 @@ func Test_line(t *testing.T) {
 
 		test := test
 		t.Run(test.desc, func(t *testing.T) {
-			t.Parallel()
 			test.lineF(screen, test.x, test.y, test.l)
 			screen.Show()
 			assertScreen(t, screen, test.expected)
@@ -217,7 +216,6 @@ func Test_connect(t *testing.T) {
 
 		test := test
 		t.Run(test.desc, func(t *testing.T) {
-			t.Parallel()
 			connect(screen, test.b1, test.b2, 2, test.first, test.last)
 			screen.Show()
 			assertScreen(t, screen, test.expected)
@@ -409,7 +407,6 @@ func Test_connectJobsNegative(t *testing.T) {
 		}
 		test := test
 		t.Run(test.desc, func(t *testing.T) {
-			t.Parallel()
 			assert.Error(t, connectJobs(screen, test.jobs, test.boxes))
 
 		})
@@ -662,7 +659,6 @@ func Test_latestJobs(t *testing.T) {
 	for _, test := range tests {
 		test := test
 		t.Run(test.desc, func(t *testing.T) {
-			t.Parallel()
 			jobs := latestJobs(test.jobs)
 			assert.Equal(t, test.expected, jobs)
 		})
@@ -756,7 +752,6 @@ func Test_adjacentStages(t *testing.T) {
 	for _, test := range tests {
 		test := test
 		t.Run(test.desc, func(t *testing.T) {
-			t.Parallel()
 			prev, next := adjacentStages(test.jobs, test.stage)
 			assert.Equal(t, test.expectedPrev, prev)
 			assert.Equal(t, test.expectedNext, next)
@@ -851,7 +846,6 @@ func Test_stageBounds(t *testing.T) {
 	for _, test := range tests {
 		test := test
 		t.Run(test.desc, func(t *testing.T) {
-			t.Parallel()
 			lower, upper := stageBounds(test.jobs, test.stage)
 			assert.Equal(t, test.expectedLower, lower)
 			assert.Equal(t, test.expectedUpper, upper)
@@ -1115,7 +1109,6 @@ func Test_handleNavigation(t *testing.T) {
 	for _, test := range tests {
 		test := test
 		t.Run(test.desc, func(t *testing.T) {
-			t.Parallel()
 			var navi navigator
 			for _, e := range test.input {
 				navi.Navigate(jobs, e)

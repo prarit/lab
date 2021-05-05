@@ -11,7 +11,6 @@ import (
 // Test for listing personal snippets in snippet_test.go
 
 func Test_snippetList(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "snippet", "list", "lab-testing")
 	cmd.Dir = repo

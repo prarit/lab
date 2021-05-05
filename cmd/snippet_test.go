@@ -10,7 +10,6 @@ import (
 )
 
 func Test_snippetCmd_personal(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	var snipID string
 	t.Run("create_personal", func(t *testing.T) {

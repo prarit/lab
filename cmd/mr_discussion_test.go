@@ -66,7 +66,6 @@ func Test_mrDiscussionMsg(t *testing.T) {
 	for _, test := range tests {
 		t.Run(test.Name, func(t *testing.T) {
 			test := test
-			t.Parallel()
 			body, err := mrDiscussionMsg(test.Msgs)
 			if err != nil {
 				t.Fatal(err)
@@ -77,7 +76,6 @@ func Test_mrDiscussionMsg(t *testing.T) {
 }
 
 func Test_mrDiscussionText(t *testing.T) {
-	t.Parallel()
 	text, err := mrDiscussionText()
 	if err != nil {
 		t.Fatal(err)

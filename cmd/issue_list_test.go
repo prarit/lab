@@ -9,7 +9,6 @@ import (
 )
 
 func Test_issueList(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "issue", "list")
 	cmd.Dir = repo
@@ -25,7 +24,6 @@ func Test_issueList(t *testing.T) {
 }
 
 func Test_issueListFlagLabel(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "issue", "list", "-l", "enhancement")
 	cmd.Dir = repo
@@ -41,7 +39,6 @@ func Test_issueListFlagLabel(t *testing.T) {
 }
 
 func Test_issueListStateClosed(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "issue", "list", "-s", "closed")
 	cmd.Dir = repo
@@ -57,7 +54,6 @@ func Test_issueListStateClosed(t *testing.T) {
 }
 
 func Test_issueListFlagMilestone(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "issue", "list", "--milestone", "1.0")
 	cmd.Dir = repo
@@ -73,7 +69,6 @@ func Test_issueListFlagMilestone(t *testing.T) {
 }
 
 func Test_issueListSearch(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "issue", "list", "filter labels")
 	cmd.Dir = repo

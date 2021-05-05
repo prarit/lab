@@ -9,7 +9,6 @@ import (
 )
 
 func Test_milestoneList(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "milestone", "list")
 	cmd.Dir = repo
@@ -25,7 +24,6 @@ func Test_milestoneList(t *testing.T) {
 }
 
 func Test_milestoneListSearch(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "milestone", "list", "99")
 	cmd.Dir = repo
@@ -41,7 +39,6 @@ func Test_milestoneListSearch(t *testing.T) {
 }
 
 func Test_milestoneListState(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "milestone", "list", "--state", "closed")
 	cmd.Dir = repo

@@ -9,7 +9,6 @@ import (
 )
 
 func Test_ciRun(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "ci", "run")
 	cmd.Dir = repo
@@ -23,7 +22,6 @@ func Test_ciRun(t *testing.T) {
 }
 
 func Test_parseCIVariables(t *testing.T) {
-	t.Parallel()
 	tests := []struct {
 		desc        string
 		vars        []string
@@ -59,7 +57,6 @@ func Test_parseCIVariables(t *testing.T) {
 	for _, test := range tests {
 		test := test
 		t.Run(test.desc, func(t *testing.T) {
-			t.Parallel()
 			ciVars, err := parseCIVariables(test.vars)
 			assert.Equal(t, test.expected, ciVars)
 			if test.expectedErr == "" {
@@ -72,7 +69,6 @@ func Test_parseCIVariables(t *testing.T) {
 }
 
 func Test_getCIRunOptions(t *testing.T) {
-	t.Parallel()
 	tests := []struct {
 		desc            string
 		cmdFunc         func()

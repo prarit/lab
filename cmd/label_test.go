@@ -8,7 +8,6 @@ import (
 )
 
 func Test_labelCmd(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	t.Run("prepare", func(t *testing.T) {
 		cmd := exec.Command("sh", "-c", labBinaryPath+` label list lab-testing | grep -q 'test-label' && `+labBinaryPath+` label delete test-label`)

@@ -92,7 +92,6 @@ func Test_fork(t *testing.T) {
 		},
 	}
 
-	t.Parallel()
 
 	for _, test := range tests {
 		test := test

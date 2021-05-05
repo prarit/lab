@@ -8,7 +8,6 @@ import (
 )
 
 func Test_ciArtifacts(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command("git", "fetch", "origin")
 	cmd.Dir = repo
@@ -30,7 +29,6 @@ func Test_ciArtifacts(t *testing.T) {
 }
 
 func Test_ciArtifactsPath(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command("git", "fetch", "origin")
 	cmd.Dir = repo

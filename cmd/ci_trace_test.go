@@ -8,7 +8,6 @@ import (
 )
 
 func Test_ciTrace(t *testing.T) {
-	t.Parallel()
 	repo := copyTestRepo(t)
 	cmd := exec.Command(labBinaryPath, "fetch", "origin")
 	cmd.Dir = repo
@@ -73,7 +72,6 @@ func Test_ciTrace(t *testing.T) {
 	for _, test := range tests {
 		test := test
 		t.Run(test.desc, func(t *testing.T) {
-			t.Parallel()
 			cmd = exec.Command(labBinaryPath, append([]string{"ci", "trace"}, test.args...)...)
 			cmd.Dir = repo
 

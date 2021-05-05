@@ -142,7 +142,6 @@ func Test_mrNoteMsg(t *testing.T) {
 	for _, test := range tests {
 		t.Run(test.Name, func(t *testing.T) {
 			test := test
-			t.Parallel()
 			body, err := noteMsg(test.Msgs, true, "\n")
 			if err != nil {
 				t.Fatal(err)
@@ -153,7 +152,6 @@ func Test_mrNoteMsg(t *testing.T) {
 }
 
 func Test_mrNoteText(t *testing.T) {
-	t.Parallel()
 	text, err := noteText("\n")
 	if err != nil {
 		t.Fatal(err)
