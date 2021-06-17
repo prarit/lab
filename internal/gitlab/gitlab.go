@@ -1745,3 +1745,39 @@ func TodoMRCreate(project string, mrNum int) (int, error) {
 	}
 	return todo.ID, nil
 }
+
+func GetProjectMembers(project int) {
+
+	var members []*gitlab.ProjectMember
+	var opt gitlab.ListProjectMembersOptions
+	opt.ListOptions.PerPage = maxItemsPerPage
+
+	for {
+		projectMembers, resp, err := lab.ProjectMembers.ListAllProjectMembers(project, &opt)
+		if err != nil {
+			return
+		}
+		members = append(members, projectMembers...)
+
+		if resp.CurrentPage >= resp.TotalPages {
+			break
+		}
+
+		opt.ListOptions.Page = resp.NextPage
+	}
+
+	for m, member := range members {
+		user, _, err := lab.Users.GetUser(member.ID, gitlab.GetUsersOptions{})
+		if err != nil {
+			fmt.Printf("error with user %s\n", member.Username)
+			return
+		}
+		if user.PublicEmail == "" {
+			fmt.Printf("Warning user %s does not have a public email configured.\n", member.Username)
+			continue
+		}
+		fmt.Printf("%d %s %d %s\n", m, member.Username, member.ID, user.PublicEmail)
+	}
+	fmt.Println(len(members))
+	return
+}
