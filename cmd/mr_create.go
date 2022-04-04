@@ -139,6 +139,7 @@ func runMRCreate(cmd *cobra.Command, args []string) {
 		log.Fatal(err)
 	}
 
+	fmt.Println("localBranch = ", localBranch)
 	sourceRemote, err := determineSourceRemote(localBranch)
 	if err != nil {
 		log.Fatal(err)
@@ -179,6 +180,8 @@ func runMRCreate(cmd *cobra.Command, args []string) {
 	}
 
 	// verify the source branch in remote project
+	fmt.Println("sourceProjectName = ", sourceProjectName)
+	fmt.Println("sourceBranch = ", sourceBranch)
 	err = verifyRemoteBranch(sourceProjectName, sourceBranch)
 	if err != nil {
 		log.Fatalf("%s:%s\n", sourceRemote, err)
