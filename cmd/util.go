@@ -731,5 +731,8 @@ func dumpToken(tokendata *gitlab.PersonalAccessToken) {
 	fmt.Println("LastUsedAt:", tokendata.LastUsedAt)
 	fmt.Println("Active:    ", tokendata.Active)
 	fmt.Println("ExpiresAt: ", time.Time(*tokendata.ExpiresAt).String())
+	if tokendata.Token != "" {
+		fmt.Println("Token:     ", tokendata.Token)
+	}
 	fmt.Println("")
 }

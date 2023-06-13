@@ -1914,3 +1914,19 @@ func RevokePAT(id int) error {
 
 	return fmt.Errorf("%d is not a valid Token ID\n", id)
 }
+
+func RotatePAT(id int) (*gitlab.PersonalAccessToken, error) {
+	PATs, err := GetAllPATs()
+	if err != nil {
+		return nil, err
+	}
+
+	for _, PAT := range PATs {
+		if PAT.ID == id {
+			newPAT, _, err := lab.PersonalAccessTokens.RotatePersonalAccessToken(PAT.ID)
+			return newPAT, err
+		}
+	}
+
+	return nil, fmt.Errorf("%d is not a valid Token ID\n", id)
+}
