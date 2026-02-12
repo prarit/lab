@@ -53,7 +53,7 @@ func truncateText(s string, length int) (string) {
 }
 
 func overwriteEndOfString(str string, index int, replacement string) string {
-	if index < 0 || index >= len(str) {
+	if index <= 0 || index >= len(str) {
 		return str
 	}
 	// The output looks weird if the character before the index is a space
